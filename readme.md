@@ -11,5 +11,5 @@ This plugin adds a collection of custom widgets to the Elementor page builder.
 4. Activate the plugin through the 'Plugins' menu in WordPress.
 5. There will be a new category called "Esmond" in the Elements section of the Elementor page builder.
 
-
+![Alt text](/docs/img/new-widget-section.png "New Widget")
 
