@@ -1,7 +1,7 @@
 {
-	"name": "em-nav-menu-elementor",
+	"name": "esmond-elementor-widgets",
 	"version": "0.1.0",
-	"description": "This plugin adds a new navigation menu widget to the general category section of the Elementor page builder.",
+	"description": "This plugin adds a collection of custom widgets to the Elementor page builder.",
 	"author": "Esmond Mccain",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
@@ -10,9 +10,8 @@
         "Elementor"
 	],
 	"files": [
-		"/includes",
-		"/page-templates",
-		"em-nav-menu-elementor.php"
+		"/widgets",
+		"esmond-elementor-widgets.php"
 	],
 	"devDependencies": {
 		"@wordpress/scripts": "^27.9.0"
