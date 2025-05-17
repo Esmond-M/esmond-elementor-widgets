@@ -13,6 +13,7 @@
 namespace Esmond\ElementorWidgets;
 
 use Esmond\ElementorWidgets\Widgets\Nav_Menu;
+use Esmond\ElementorWidgets\Widgets\Card_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -52,10 +53,10 @@ final class EsmondElementorWidgets {
 
         // Require the widget class.
         require_once __DIR__ . '/widgets/nav-menu.php';
-
+        require_once __DIR__ . '/widgets/card.php';
         // Register widget with elementor.
         \Elementor\Plugin::instance()->widgets_manager->register( new Nav_Menu() );
-
+        \Elementor\Plugin::instance()->widgets_manager->register( new Card_Widget() );
     }
 
     public static function get_instance() {
