@@ -10,7 +10,6 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
     class Testimonial_Carousel_Widget extends Widget_Base
     {
 
-
      public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
 
@@ -21,6 +20,7 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
         wp_enqueue_script('testimonial-carousel-init', plugin_dir_url(__FILE__) . '../assets/js/testimonial-carousel.js', array('jquery'), $nonCache_version,  true);
 
     }
+    
     public function get_name() {
         return 'esmond_testimonial_carousel';
     }
