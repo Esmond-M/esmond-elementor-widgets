@@ -17,7 +17,7 @@ if (!class_exists('Card_Widget')) {
 	 * @return string Widget name.
 	 */
         public function get_name() {
-            return 'card';
+            return 'esmond_card';
         }
 	
         public function get_title() {

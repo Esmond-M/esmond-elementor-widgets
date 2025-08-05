@@ -12,8 +12,9 @@
 */
 namespace Esmond\ElementorWidgets;
 
-use Esmond\ElementorWidgets\Widgets\Nav_Menu;
 use Esmond\ElementorWidgets\Widgets\Card_Widget;
+use Esmond\ElementorWidgets\Widgets\Nav_Menu;
+use Esmond\ElementorWidgets\Widgets\Testimonial_Carousel_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -52,11 +53,13 @@ final class EsmondElementorWidgets {
     public function init_widgets() {
 
         // Require the widget class.
-        require_once __DIR__ . '/widgets/nav-menu.php';
         require_once __DIR__ . '/widgets/card.php';
+        require_once __DIR__ . '/widgets/nav-menu.php';
+        require_once __DIR__ . '/widgets/testimonial-carousel.php';
         // Register widget with elementor.
-        \Elementor\Plugin::instance()->widgets_manager->register( new Nav_Menu() );
         \Elementor\Plugin::instance()->widgets_manager->register( new Card_Widget() );
+        \Elementor\Plugin::instance()->widgets_manager->register( new Nav_Menu() );
+        \Elementor\Plugin::instance()->widgets_manager->register( new Testimonial_Carousel_Widget() );
     }
 
     public static function get_instance() {

@@ -12,15 +12,14 @@ if (!class_exists('Nav_Menu;')) {
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
 
-		$theme_version = esmond_Theme_VERSION;
 		$nonCache_version = rand( 1, 99999999999 );
 		// Enqueue Main style.
-		wp_enqueue_style( 'esmond-elementor-menu-css', get_stylesheet_directory_uri() . '/assets/css/elementor-menu.css', array(), $nonCache_version );
+		wp_enqueue_style( 'esmond-elementor-menu-css', plugin_dir_url(__FILE__) . '../assets/css/elementor.css', array(), $nonCache_version );
 
     }
     
     public function get_name() {
-        return 'esmond-menu';
+        return 'esmond_menu';
     }
 
     public function get_title() {
