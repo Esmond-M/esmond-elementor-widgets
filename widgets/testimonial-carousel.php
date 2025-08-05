@@ -15,8 +15,8 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
 
 		$nonCache_version = rand( 1, 99999999999 );
 		// Enqueue Main style.
-        wp_enqueue_style('slick-carousel-css', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), $nonCache_version);
-        wp_enqueue_script('slick-carousel-js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), $nonCache_version, true);
+        wp_enqueue_style('slick-carousel-css', plugin_dir_url(__FILE__) . '../assets/css/slick.css', array(), $nonCache_version);
+        wp_enqueue_script('slick-carousel-js', plugin_dir_url(__FILE__) . '../assets/js/slick.min.js', array('jquery'), $nonCache_version, true);
         wp_enqueue_script('testimonial-carousel-init', plugin_dir_url(__FILE__) . '../assets/js/testimonial-carousel.js', array('jquery'), $nonCache_version,  true);
 
     }
