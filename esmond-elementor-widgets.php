@@ -57,17 +57,6 @@ final class EsmondElementorWidgets {
         load_plugin_textdomain( 'esmond-elementor-widgets' );
     }
 
-    public function init_plugin() {
-        // Check php version
-        // check if elementor is installed
-        // bring in the widget classes
-        // bring in the controls
-    }
-
-    public function init_controls() {
-        
-    }
-
 
     public function init_widgets() {
 
