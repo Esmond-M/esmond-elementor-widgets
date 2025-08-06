@@ -80,5 +80,5 @@ if (!class_exists('FAQ_Accordion_Widget')) {
             echo '</div>';
         }
     }
-} // Closing bracket for class
+  } // Closing bracket for class
 }

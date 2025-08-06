@@ -100,6 +100,6 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
         }
     }
 
-    } // Closing bracket for class
+ } // Closing bracket for class
 
 }

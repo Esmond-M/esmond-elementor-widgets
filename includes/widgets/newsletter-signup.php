@@ -67,6 +67,6 @@ if (!class_exists('Newsletter_Signup_Widget')) {
         echo '<div class="newsletter-response" style="margin-top:10px;"></div>'; 
         echo '</form>';
     }
-} // Closing bracket for class
+  } // Closing bracket for class
 
 }

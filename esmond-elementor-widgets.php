@@ -21,6 +21,8 @@ use Esmond\ElementorWidgets\Widgets\Testimonial_Carousel_Widget;
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+// includes scripts and styles
 require_once __DIR__ . '/includes/assets.php';
 
 final class EsmondElementorWidgets {
@@ -33,7 +35,6 @@ final class EsmondElementorWidgets {
 
     public function __construct() {
         add_action( 'init', [ $this, 'i18n' ] );
-        add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
         add_action( 'elementor/elements/categories_registered', [ $this, 'create_new_category' ] );
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 
@@ -53,19 +54,9 @@ final class EsmondElementorWidgets {
 
         wp_send_json_success(['message' => 'Thank you for subscribing!']);
     }
+    
     public function i18n() {
         load_plugin_textdomain( 'esmond-elementor-widgets' );
-    }
-
-    public function init_plugin() {
-        // Check php version
-        // check if elementor is installed
-        // bring in the widget classes
-        // bring in the controls
-    }
-
-    public function init_controls() {
-        
     }
 
 

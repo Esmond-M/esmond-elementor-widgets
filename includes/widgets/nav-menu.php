@@ -214,6 +214,6 @@ if (!class_exists('Nav_Menu;')) {
         );
     }
     
-} // Closing bracket for class
+  } // Closing bracket for class
 
 }
