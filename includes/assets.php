@@ -2,6 +2,15 @@
 add_action('wp_enqueue_scripts', function () {
     $base = plugin_dir_url(__FILE__) . '../assets/';
     $version = '1.0'; // Or use filemtime() or random for dev
+    
+
+    wp_register_script(
+        'faq-accordion-init',
+        $base . '/js/faq-accordion.js',
+        [ 'jquery'],
+        $version,
+        true
+    );
 
     wp_register_style(
         'slick-carousel-css',
