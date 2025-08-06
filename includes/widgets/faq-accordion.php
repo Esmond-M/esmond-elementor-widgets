@@ -84,5 +84,5 @@ use Elementor\Repeater;
             echo '</div>';
         }
     }
-  } // Closing bracket for class
+  }
 
