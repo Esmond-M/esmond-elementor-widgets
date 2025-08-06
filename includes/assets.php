@@ -6,7 +6,7 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_register_script(
         'faq-accordion-init',
-        $base . '/js/faq-accordion.js',
+        $base . 'js/faq-accordion.js',
         [ 'jquery'],
         $version,
         true
@@ -36,15 +36,22 @@ add_action('wp_enqueue_scripts', function () {
     );
 
     wp_register_style(
+        'esmond-elementor-menu-css',
+        $base . 'css/elementor.css',
+        [],
+        $version
+    );
+
+    wp_register_style(
         'newsletter-signup-style',
-        $base  . '/css/newsletter-signup.css',
+        $base  . 'css/newsletter-signup.css',
         [],
         '1.0'
     );
 
     wp_register_script(
         'newsletter-signup-init',
-        $base . '/js/newsletter-signup.js',
+        $base . 'js/newsletter-signup.js',
         [ 'jquery' ],
         '1.0',
         true
