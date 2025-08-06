@@ -6,7 +6,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
-if (!class_exists('FAQ_Accordion_Widget')) {
+
    class FAQ_Accordion_Widget extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -85,4 +85,4 @@ if (!class_exists('FAQ_Accordion_Widget')) {
         }
     }
   } // Closing bracket for class
-}
+
