@@ -12,10 +12,6 @@ if (!class_exists('Nav_Menu;')) {
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
 
-		$nonCache_version = rand( 1, 99999999999 );
-		// Enqueue Main style.
-		wp_enqueue_style( 'esmond-elementor-menu-css', plugin_dir_url(__FILE__) . '../assets/css/elementor.css', array(), $nonCache_version );
-
     }
     
     public function get_name() {
@@ -33,6 +29,10 @@ if (!class_exists('Nav_Menu;')) {
     public function get_categories() {
         return ['esmond'];
     }
+ 
+    public function get_script_depends() {
+        return [ 'esmond-elementor-menu-css' ];
+    }      
 
     private function get_menus() {
         $menus = wp_get_nav_menus();

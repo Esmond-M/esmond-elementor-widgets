@@ -12,10 +12,6 @@ if (!class_exists('FAQ_Accordion_Widget')) {
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
 
-		$nonCache_version = rand( 1, 99999999999 );
-		// Enqueue Main style.
-        wp_enqueue_script('faq-accordion-init', plugin_dir_url(__FILE__) . '../assets/js/faq-accordion.js', array('jquery'), $nonCache_version,  true);
-
     }
 
     public function get_name() {
@@ -27,12 +23,16 @@ if (!class_exists('FAQ_Accordion_Widget')) {
     }
 
     public function get_icon() {
-        return 'eicon-editor-list';
+        return 'eicon-editor-list-ul';
     }
 
     public function get_categories() {
         return ['esmond'];
     }
+
+    public function get_script_depends() {
+        return [ 'faq-accordion-init' ];
+    }    
 
     protected function _register_controls() {
         $this->start_controls_section('content_section', [

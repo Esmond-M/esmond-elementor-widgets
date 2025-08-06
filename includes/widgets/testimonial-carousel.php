@@ -13,14 +13,8 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
      public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
 
-		$nonCache_version = rand( 1, 99999999999 );
-		// Enqueue Main style.
-        wp_enqueue_style('slick-carousel-css', plugin_dir_url(__FILE__) . '../assets/css/slick.css', array(), $nonCache_version);
-        wp_enqueue_script('slick-carousel-js', plugin_dir_url(__FILE__) . '../assets/js/slick.min.js', array('jquery'), $nonCache_version, true);
-        wp_enqueue_script('testimonial-carousel-init', plugin_dir_url(__FILE__) . '../assets/js/testimonial-carousel.js', array('jquery'), $nonCache_version,  true);
-
     }
-    
+        
     public function get_name() {
         return 'esmond_testimonial_carousel';
     }
@@ -36,6 +30,14 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
     public function get_categories() {
         return ['esmond'];
     }
+
+    public function get_style_depends() {
+        return [ 'slick-carousel-css' ];
+    }
+
+    public function get_script_depends() {
+        return [ 'slick-carousel-js', 'testimonial-carousel-init' ];
+    }    
 
     protected function _register_controls() {
         $this->start_controls_section('content_section', [
