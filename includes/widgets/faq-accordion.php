@@ -30,6 +30,10 @@ if (!class_exists('FAQ_Accordion_Widget')) {
         return ['esmond'];
     }
 
+    public function get_style_depends() {
+        return [ 'esmond-elementor-menu-css' ];
+    }
+
     public function get_script_depends() {
         return [ 'faq-accordion-init' ];
     }    

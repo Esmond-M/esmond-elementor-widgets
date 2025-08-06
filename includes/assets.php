@@ -1,7 +1,7 @@
 <?php
 add_action('wp_enqueue_scripts', function () {
     $base = plugin_dir_url(__FILE__) . '../assets/';
-    $version = '1.1'; // Or use filemtime() or random for dev
+    $version = '1.11'; // Or use filemtime() or random for dev
     
 
     wp_register_script(
