@@ -6,7 +6,7 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
-if (!class_exists('FAQ_Accordion_Widget')) {
+
    class FAQ_Accordion_Widget extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -28,6 +28,10 @@ if (!class_exists('FAQ_Accordion_Widget')) {
 
     public function get_categories() {
         return ['esmond'];
+    }
+
+    public function get_style_depends() {
+        return [ 'esmond-elementor-menu-css' ];
     }
 
     public function get_script_depends() {
@@ -80,5 +84,5 @@ if (!class_exists('FAQ_Accordion_Widget')) {
             echo '</div>';
         }
     }
-  } // Closing bracket for class
-}
+  }
+

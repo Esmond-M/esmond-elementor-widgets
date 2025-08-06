@@ -5,7 +5,7 @@ namespace Esmond\ElementorWidgets\Widgets;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if (!class_exists('Newsletter_Signup_Widget')) {
+
    class Newsletter_Signup_Widget extends Widget_Base {
 
     public function __construct( $data = [], $args = null ) {
@@ -67,6 +67,5 @@ if (!class_exists('Newsletter_Signup_Widget')) {
         echo '<div class="newsletter-response" style="margin-top:10px;"></div>'; 
         echo '</form>';
     }
-  } // Closing bracket for class
+  } 
 
-}

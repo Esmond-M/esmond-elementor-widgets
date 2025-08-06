@@ -14,16 +14,12 @@ namespace Esmond\ElementorWidgets;
 
 
 use Esmond\ElementorWidgets\Widgets\FAQ_Accordion_Widget;
-use Esmond\ElementorWidgets\Widgets\Nav_Menu;
 use Esmond\ElementorWidgets\Widgets\Newsletter_Signup_Widget;
 use Esmond\ElementorWidgets\Widgets\Testimonial_Carousel_Widget;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-// includes scripts and styles
-require_once __DIR__ . '/includes/assets.php';
 
 final class EsmondElementorWidgets {
 
@@ -44,6 +40,8 @@ final class EsmondElementorWidgets {
     }
 
     public function esmond_handle_newsletter_signup() {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'esmond_newsletter';
 
         $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
 
@@ -51,6 +49,29 @@ final class EsmondElementorWidgets {
             wp_send_json_error(['message' => 'Invalid email']);
         }
 
+        // Check if email already exists
+        $exists = $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(*) FROM $table_name WHERE email = %s",
+            $email
+        ));
+
+        if ($exists > 0) {
+            wp_send_json_success(['message' => 'You’re already subscribed!']);
+        }
+
+        // Insert new email
+        $inserted = $wpdb->insert(
+            $table_name,
+            [
+                'email' => $email,
+                'date_subscribed' => current_time('mysql')
+            ],
+            ['%s', '%s']
+        );
+
+        if ($inserted === false) {
+            wp_send_json_error(['message' => 'Failed to save. Try again later.']);
+        }
 
         wp_send_json_success(['message' => 'Thank you for subscribing!']);
     }
@@ -64,13 +85,11 @@ final class EsmondElementorWidgets {
 
         // Require the widget class.
         require_once __DIR__ . '/includes/widgets/faq-accordion.php';
-        require_once __DIR__ . '/includes/widgets/nav-menu.php';
         require_once __DIR__ . '/includes/widgets/newsletter-signup.php';        
         require_once __DIR__ . '/includes/widgets/testimonial-carousel.php';
 
         // Register widget with elementor.
         \Elementor\Plugin::instance()->widgets_manager->register( new FAQ_Accordion_Widget() );
-        \Elementor\Plugin::instance()->widgets_manager->register( new Nav_Menu() );
         \Elementor\Plugin::instance()->widgets_manager->register( new Newsletter_Signup_Widget() );        
         \Elementor\Plugin::instance()->widgets_manager->register( new Testimonial_Carousel_Widget() );
 
@@ -99,5 +118,17 @@ final class EsmondElementorWidgets {
     }
 
 }
+// includes scripts and styles
+require_once __DIR__ . '/includes/assets.php';
+
+require_once __DIR__ . '/includes/installer.php';
+
+// Activation
+register_activation_hook(__FILE__, ['Esmond\\ElementorWidgets\\Installer\\Installer', 'create_table']);
+
+// includes admin files
+
+require_once __DIR__ . '/includes/admin/newsletter-subscribers.php';
+\Esmond\ElementorWidgets\Admin\Newsletter_Subscribers::init();
 
 EsmondElementorWidgets::get_instance();

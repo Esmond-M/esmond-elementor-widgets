@@ -6,8 +6,8 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 
-if (!class_exists('Testimonial_Carousel_Widget;')) {
-    class Testimonial_Carousel_Widget extends Widget_Base
+
+class Testimonial_Carousel_Widget extends Widget_Base
     {
 
      public function __construct( $data = [], $args = null ) {
@@ -100,6 +100,6 @@ if (!class_exists('Testimonial_Carousel_Widget;')) {
         }
     }
 
- } // Closing bracket for class
-
 }
+
+
