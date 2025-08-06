@@ -10,29 +10,6 @@ if (!class_exists('Newsletter_Signup_Widget')) {
 
     public function __construct( $data = [], $args = null ) {
         parent::__construct( $data , $args );
-
-		$nonCache_version = rand( 1, 99999999999 );
-		// Enqueue Main style.
-        // Hook into the correct place to enqueue script only when needed
-        add_action('elementor/frontend/after_enqueue_scripts', [$this, 'newsletter_enqueue_scripts']);
-
-  
-    }
-
-    public function newsletter_enqueue_scripts() {
-        $nonCache_version = rand(1, 999999999); // Optional: good for dev, not production
-
-        wp_enqueue_script(
-            'newsletter-signup-init',
-            plugin_dir_url(__FILE__) . '../assets/js/newsletter-signup.js',
-            ['jquery'],
-            $nonCache_version,
-            true
-        );
-
-        wp_localize_script('newsletter-signup-init', 'newsletterAjax', [
-            'ajaxurl' => admin_url('admin-ajax.php')
-        ]);
   
     }
 
@@ -52,6 +29,14 @@ if (!class_exists('Newsletter_Signup_Widget')) {
         return ['esmond'];
     }
 
+    public function get_style_depends() {
+        return [ 'newsletter-signup-style' ];
+    }
+
+    public function get_script_depends() {
+        return [ 'newsletter-signup-init' ];
+    }
+    
     protected function _register_controls() {
         $this->start_controls_section('content_section', [
             'label' => __('Settings', 'esmond-elementor-widgets'),
