@@ -23,7 +23,7 @@ if (!class_exists('FAQ_Accordion_Widget')) {
     }
 
     public function get_icon() {
-        return 'eicon-editor-list';
+        return 'eicon-editor-list-ul';
     }
 
     public function get_categories() {
