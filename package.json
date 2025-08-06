@@ -12,6 +12,7 @@
 	"files": [
 		"/widgets",
 		"/assets",
+		"/includes",
 		"esmond-elementor-widgets.php"
 	],
 	"devDependencies": {
