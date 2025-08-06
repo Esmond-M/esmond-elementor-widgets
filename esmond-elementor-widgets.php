@@ -12,6 +12,7 @@
 */
 namespace Esmond\ElementorWidgets;
 
+
 use Esmond\ElementorWidgets\Widgets\FAQ_Accordion_Widget;
 use Esmond\ElementorWidgets\Widgets\Nav_Menu;
 use Esmond\ElementorWidgets\Widgets\Newsletter_Signup_Widget;
@@ -20,6 +21,7 @@ use Esmond\ElementorWidgets\Widgets\Testimonial_Carousel_Widget;
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+require_once __DIR__ . '/includes/assets.php';
 
 final class EsmondElementorWidgets {
 
@@ -39,6 +41,7 @@ final class EsmondElementorWidgets {
         add_action('wp_ajax_newsletter_signup',  [ $this, 'esmond_handle_newsletter_signup' ]);
         add_action('wp_ajax_nopriv_newsletter_signup', [ $this, 'esmond_handle_newsletter_signup'] );
     }
+
     public function esmond_handle_newsletter_signup() {
 
         $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
@@ -69,10 +72,10 @@ final class EsmondElementorWidgets {
     public function init_widgets() {
 
         // Require the widget class.
-        require_once __DIR__ . '/widgets/faq-accordion.php';
-        require_once __DIR__ . '/widgets/nav-menu.php';
-        require_once __DIR__ . '/widgets/newsletter-signup.php';        
-        require_once __DIR__ . '/widgets/testimonial-carousel.php';
+        require_once __DIR__ . '/includes/widgets/faq-accordion.php';
+        require_once __DIR__ . '/includes/widgets/nav-menu.php';
+        require_once __DIR__ . '/includes/widgets/newsletter-signup.php';        
+        require_once __DIR__ . '/includes/widgets/testimonial-carousel.php';
 
         // Register widget with elementor.
         \Elementor\Plugin::instance()->widgets_manager->register( new FAQ_Accordion_Widget() );
